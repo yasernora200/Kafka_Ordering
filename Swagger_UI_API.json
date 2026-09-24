@@ -1,0 +1,132 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Kafka Ordering API",
+    "description": "API Documentation for Kafka Ordering & Event Processing",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9191",
+      "description": "Local Server"
+    }
+  ],
+  "paths": {
+    "/order-events/process": {
+      "post": {
+        "tags": [
+          "order-events-controller"
+        ],
+        "summary": "Process Order Events (No Key)",
+        "operationId": "process",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/order-events/processWithKey": {
+      "post": {
+        "tags": [
+          "order-events-controller"
+        ],
+        "summary": "Process Order Events With Key",
+        "operationId": "processWithKey",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/demo/with-key": {
+      "post": {
+        "tags": [
+          "order-controller"
+        ],
+        "summary": "Send Event With Key",
+        "operationId": "sendWithKey",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/demo/no-key": {
+      "post": {
+        "tags": [
+          "order-controller"
+        ],
+        "summary": "Send Event Without Key",
+        "operationId": "sendNoKey",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
