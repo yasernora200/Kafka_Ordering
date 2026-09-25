@@ -21,17 +21,17 @@ To start the Kafka Broker on **Windows**, execute the following commands in orde
 
 ### 1. Generate Cluster UUID
 ```powershell
-$KAFKA_CLUSTER_ID = .\bin\windows\kafka-storage.bat random-uuid
+$KAFKA_CLUSTER_ID=bin/windows/kafka-storage.bat random-uuid
 ```
 
 ### 2. Format Log Directories
 ```powershell
-.\bin\windows\kafka-storage.bat format -t $KAFKA_CLUSTER_ID -c .\config\server.properties
+bin/windows/kafka-storage.bat format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
 ```
 
 ### 3. Start Kafka Server / Broker
 ```powershell
-.\bin\windows\kafka-server-start.bat .\config\server.properties
+ bin/windows/kafka-server-start.bat config/server.properties
 ```
 
 > 💡 **Note:** The Kafka broker will start on the default port `localhost:9092`.
