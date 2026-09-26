@@ -26,12 +26,12 @@ $KAFKA_CLUSTER_ID = .\bin\windows\kafka-storage.bat random-uuid
 
 ### 2. Format Log Directories
 ```powershell
-.\bin\windows\kafka-storage.bat format -t $KAFKA_CLUSTER_ID -c .\config\kraft\server.properties
+.\bin\windows\kafka-storage.bat format -t $KAFKA_CLUSTER_ID -c .\config\server.properties
 ```
 
 ### 3. Start Kafka Server / Broker
 ```powershell
-.\bin\windows\kafka-server-start.bat .\config\kraft\server.properties
+.\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
 
 > 💡 **Note:** The Kafka broker will start on the default port `localhost:9092`.
